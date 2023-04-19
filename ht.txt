@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>bugtraq portal</title>
+<script type="text/javascript">
+<--
+    // デフォルトのurl
+    var url='http://issues/current/';
+
+    // URLの引数部分 '?' 以降を取り出し、一時変数 arg に代入します。
+    var arg = location.search;
+
+    // 引数の変数部分の文字列を取り出し、arg に再代入します。
+    arg = arg.substring(1,arg.length);
+
+    // arg から 文書ID部分のみを取り出し、一時変数 docID に代入します。"
+    // "XXXX-YYYYYY" 部分なので、index = 0 から 11文字分となります。
+    var docID = arg.substring(0,11);
+
+    // arg から分岐先の識別子 "Zn" を取り出し、一時変数 urlID に代入します。
+    // "Zn" 部分なので、13文字目以降を利用します。index は0から開始なので注意
+    var urlID=arg.substring(12);
+
+    // 分岐処理
+    switch(urlID)
+    {
+        case 'Z0':
+            url = 'http://issues/backup_000/';
+            break;
+        case 'Z1':
+            url = 'http://issues/backup_001/';
+            break;
+        default:
+            // 箸にも棒にも引っかからないケース
+            //url = url;
+            break;
+    }
+
+    // リダイレクト
+    setTimeout("link()",0);
+    function link() {
+        location.href = url + '?id=' + docID;
+    }
+-->
+</script>
+</head>
+</html>
